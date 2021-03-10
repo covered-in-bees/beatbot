@@ -1,0 +1,16 @@
+﻿{
+  "stats": {
+    "lasers": "Gold",
+    "feelings": "Girls",
+    "laserFeelings": "*Golden Girls*"
+  },
+  "system": "lnf",
+  "game": "Lasers and Feelings",
+  "disposition": {
+    "2": "----|-",
+    "3": "---|-",
+    "4": "--|---",
+    "5": "-|----"
+  },
+  "botName": "SpoutBot"
+}

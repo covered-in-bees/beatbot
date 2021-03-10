@@ -1,0 +1,13 @@
+{
+  "name": "wo-dbot",
+  "version": "0.0.0",
+  "description": "WoDBot",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "rpg-dice-roller": "^4.5.2"
+  }
+}

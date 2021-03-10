@@ -1,0 +1,15 @@
+﻿{
+  "attributes": [ "Intelligence", "Strength", "Wisdom", "Dexterity", "Charisma", "Constitution" ],
+  "modifiers": {
+    "intelligence": "int",
+    "strength": "str",
+    "wisdom": "wis",
+    "dexterity": "dex",
+    "charisma": "cha",
+    "constitution": "con"
+  },
+  "descriptors": [ "alignment", "race", "class" ],
+  "skills": [ "Armor", "HP", "Damage" ],
+  "system": "dnd5",
+  "botName": "SpoutBot"
+}

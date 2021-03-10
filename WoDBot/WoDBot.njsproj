@@ -1,0 +1,112 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>WoDBot</Name>
+    <RootNamespace>WoDBot</RootNamespace>
+    <EnableTypeScript>true</EnableTypeScript>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>357c4b83-2f73-4333-b6e2-45df2fc0a406</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>app.js</StartupFile>
+    <StartWebBrowser>False</StartWebBrowser>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <StartWebBrowser>false</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app.js" />
+    <Compile Include="classes\character.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="systems\dnd5\party.js" />
+    <Compile Include="systems\dnd5\roll.js" />
+    <Compile Include="systems\dnd5\setmy.js" />
+    <Compile Include="systems\dnd5\sheet.js" />
+    <Compile Include="systems\lnf\party.js" />
+    <Compile Include="systems\lnf\roll.js" />
+    <Compile Include="systems\lnf\setmy.js" />
+    <Compile Include="systems\lnf\sheet.js" />
+    <Compile Include="systems\shared\helpers\helpers.js" />
+    <Compile Include="functions\changeSystem.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="systems\nwod\party.js" />
+    <Compile Include="systems\pbta\party.js" />
+    <Compile Include="systems\pbta\roll.js" />
+    <Compile Include="systems\pbta\setmy.js" />
+    <Compile Include="systems\shared\help.js" />
+    <Compile Include="systems\nwod\experience.js" />
+    <Compile Include="systems\nwod\clear.js" />
+    <Compile Include="systems\nwod\beats.js" />
+    <Compile Include="systems\nwod\beat.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="systems\shared\system.js" />
+    <Compile Include="systems\nwod\james.js" />
+    <Compile Include="systems\nwod\hekdek.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="systems\nwod\initiative.js" />
+    <Compile Include="systems\nwod\sheet.js" />
+    <Compile Include="systems\nwod\setmy.js" />
+    <Compile Include="old\rollmy.js" />
+    <Compile Include="systems\nwod\roll.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="systems\pbta\sheet.js" />
+    <Content Include="games\golden-girls.json" />
+    <Content Include="games\dungeon-world.json" />
+    <Content Include="systems\lnf\game.json" />
+    <Content Include="systems\lnf\party.json" />
+    <Content Include="systems\nwod\game.json" />
+    <Content Include="systems\dnd5\game.json" />
+    <Content Include="systems\dnd5\party.json" />
+    <Content Include="systems\nwod\party.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="systems\pbta\game.json" />
+    <Content Include="systems\pbta\party.json" />
+    <Content Include="games\socal-of-darkness.json" />
+    <Content Include="config.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+    <Content Include="systems\nwod\resources\hekdek.png" />
+    <Content Include="systems\nwod\resources\james.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="functions\" />
+    <Folder Include="games\" />
+    <Folder Include="old\" />
+    <Folder Include="systems\" />
+    <Folder Include="classes\" />
+    <Folder Include="systems\dnd5\" />
+    <Folder Include="systems\lnf\" />
+    <Folder Include="systems\shared\" />
+    <Folder Include="systems\pbta\" />
+    <Folder Include="systems\nwod\" />
+    <Folder Include="systems\nwod\resources\" />
+    <Folder Include="systems\shared\helpers\" />
+  </ItemGroup>
+  <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+</Project>

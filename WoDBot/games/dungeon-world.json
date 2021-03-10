@@ -1,0 +1,52 @@
+{
+  "party": [
+    {
+      "playerid": "98359818540027904",
+      "class": "Paladin",
+      "race": "Human",
+      "charisma": "16",
+      "wisdom": "8",
+      "intelligence": "12",
+      "constitution": "15",
+      "dexterity": "9",
+      "strength": "13",
+      "color": "#ededcc",
+      "name": "Jondenn of Kennedell",
+      "image": "https://cdn.discordapp.com/attachments/776883500154093598/817963843337715742/unknown.png",
+      "description": "A hypercharismatic telepathical knight",
+      "alignment": "Lawful",
+      "int": "0",
+      "dex": "0",
+      "str": "1",
+      "wis": "-1",
+      "cha": "2",
+      "con": "1"
+    },
+    {
+      "playerid": "204251480662736898",
+      "pronoun": "She/Her",
+      "name": "Lalmasha follower of Stardash",
+      "image": "https://cdn.discordapp.com/attachments/776883500154093598/817958022231490570/unknown.png"
+    },
+    {
+      "playerid": "103662250610417664",
+      "class": "Thief",
+      "name": "Dodgy Farrowpox",
+      "alignment": "Evil",
+      "strength": "9",
+      "dexterity": "16",
+      "constitution": "13",
+      "intelligence": "15",
+      "wisdom": "8",
+      "charisma": "12",
+      "image": "https://cdn.discordapp.com/attachments/776883500154093598/817974993937235988/201622065737c5ad4a5052baed49335e.png",
+      "int": "0",
+      "dex": "2",
+      "str": "0",
+      "wis": "-1",
+      "cha": "1",
+      "con": "1"
+    }
+  ],
+  "system": "pbta"
+}
