@@ -1,16 +1,24 @@
 ﻿{
   "attributes": [ "Intelligence", "Strength", "Presence", "Wits", "Dexterity", "Manipulation", "Resolve", "Stamina", "Composure" ],
   "aliases": {
-    "intelligence" : "int",
+    "intelligence": "int",
     "strength": "str",
     "dexterity": "dex",
     "manipulation": "manip",
     "stamina": "stam",
+    "animalKen": "ken",
+    "weaponry": "wep",
+    "investigation":  "inv"
+  },
+  "fullName": {
     "int": "intelligence",
     "str": "strength",
     "dex": "dexterity",
     "manip": "manipulation",
-    "stam": "stamina"
+    "stam": "stamina",
+    "ken": "animalKen",
+    "wep": "weaponry",
+    "inv": "investigation"
   },
   "skills": [ "Athletics", "Brawl", "Drive", "Firearms", "Larceny", "Stealth", "Survival", "Weaponry", "Academics", "Computer", "Crafts", "Investigation", "Medicine", "Occult", "Politics", "Science", "Animalken", "Empathy", "Expression", "Intimidation", "Persuasion", "Socialize", "Streetwise", "Subterfuge" ],
   "untrained": {

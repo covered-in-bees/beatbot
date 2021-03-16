@@ -1,4 +1,4 @@
-﻿const { experience } = require('./game.json');
+﻿const { experience } = require('./system.json');
 module.exports = {
     name: 'experience',
     system: 'nwod',

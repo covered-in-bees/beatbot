@@ -1,11 +1,15 @@
 ﻿const Discord = require('discord.js');
-const { attributes, skills } = require('./game.json');
-let party = require(`./party.json`);
+const { attributes, skills } = require('./system.json');
+const fs = require('fs');
+const helpers = require('../shared/helpers/helpers.js');
+let server = require(`../../server.json`);
 module.exports = {
     name: 'sheet',
     system: 'nwod',
     description: "Show the character's sheet. Show your character's by default, or specify a name.",
     execute(message, args) {
+        let game = JSON.parse(fs.readFileSync(`./games/${server[message.channel.id]}.json`));
+        let party = game.party;
         if (args.length == 0) {
             var character = party.filter(x => x.playerid == message.author.id)[0]
             message.channel.send(buildSheet(character));

@@ -1,12 +1,15 @@
 ﻿const Discord = require('discord.js');
-const { stats, disposition } = require('./game.json');
+const fs = require('fs');
+const { stats, disposition } = require('./system.json');
 const helpers = require('../shared/helpers/helpers.js');
-let party = require(`./party.json`);
+let server = require(`../../server.json`);
 module.exports = {
     name: 'sheet',
     system: 'lnf',
     description: `Show the character's Lasers and Feelings sheet. Show your character's by default, or specify a name.`,
     execute(message, args) {
+        let game = JSON.parse(fs.readFileSync(`./games/${server[message.channel.id]}.json`));
+        let party = game.party;
         if (args.length == 0) {
             var character = party.filter(x => x.playerid == message.author.id)[0]
             message.channel.send(buildSheet(character));

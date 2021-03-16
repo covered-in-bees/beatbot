@@ -1,11 +1,14 @@
 ﻿const Discord = require('discord.js');
-const { attributes, skills, descriptors, modifiers, scores } = require('./game.json');
-let party = require(`./party.json`);
+const fs = require('fs');
+const { attributes, skills, descriptors, modifiers, scores } = require('./system.json');
+let server = require(`../../server.json`);
 module.exports = {
     name: 'sheet',
     system: 'pbta',
     description: "Show the character's PBtA sheet. Show your character's by default, or specify a name.",
     execute(message, args) {
+        let game = JSON.parse(fs.readFileSync(`./games/${server[message.channel.id]}.json`));
+        let party = game.party;
         if (args.length == 0) {
             var character = party.filter(x => x.playerid == message.author.id)[0]
             message.channel.send(buildSheet(character));

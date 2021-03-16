@@ -1,11 +1,13 @@
 ﻿const fs = require('fs');
-let party = require(`./party.json`);
-let { system } = require(`./game.json`);
+let server = require(`../../server.json`);
+let { aliases, fullName } = require(`./system.json`);
 module.exports = {
     name: 'setmy',
     system: 'nwod',
     description: "Set your character's stats, attributes, descriptions, whatever! Arg1 = property, Arg2 = value. Try <image> <link> and <color> <hex value>!",
     execute(message, args) {
+        let game = JSON.parse(fs.readFileSync(`./games/${server[message.channel.id]}.json`));
+        let party = game.party;
         if (args[0] == "playerid") {
         }
         else {
@@ -24,7 +26,12 @@ module.exports = {
                 }
                 newValue += args[i];
             }
-            character[args[0].toLowerCase()] = newValue;
+            if (fullName.hasOwnProperty(args[0].toLowerCase())) {
+                character[fullName[args[0].toLowerCase()]] = newValue;
+            }
+            else {
+                character[args[0].toLowerCase()] = newValue;
+            }
             //get party index of user; if none, add; otherwise replace
             var index = party.findIndex(({ playerid }) => playerid === character.playerid);
             if (index === -1) {
@@ -33,8 +40,8 @@ module.exports = {
                 party[index] = character;
             }
             //update json
-            let data = JSON.stringify(party);
-            fs.writeFileSync(`systems/${system}/party.json`, data);
+            let data = JSON.stringify(game);
+            fs.writeFile(`games/${game.name}.json`, data, (err) => { if (err) throw err; });
             //send confirmation message
             if (!character.hasOwnProperty('name')) {
                 message.channel.send(`Your ${args[0]} is now ${newValue}. Don't forget to set a name!`);

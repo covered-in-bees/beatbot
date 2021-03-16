@@ -1,6 +1,7 @@
-﻿const { DiceRoll } = require('rpg-dice-roller/lib/umd/bundle.js');
-let party = require(`./party.json`);
-const { stats } = require('./game.json');
+﻿const fs = require('fs');
+const { DiceRoll } = require('rpg-dice-roller/lib/umd/bundle.js');
+let server = require(`../../server.json`);
+const { stats } = require('./system.json');
 const helpers = require('../shared/helpers/helpers.js')
 module.exports = {
     name: 'roll',
@@ -19,7 +20,8 @@ module.exports = {
             message.channel.send(messageString);
         }
         else if (args[0].toLowerCase() == stats['lasers'].toLowerCase()) {
-            character = party.filter(x => x.playerid == message.author.id)[0];
+            let game = JSON.parse(fs.readFileSync(`./games/${server[message.channel.id]}.json`));
+            character = game.party.filter(x => x.playerid == message.author.id)[0];
             roll = new DiceRoll(`${args[1] ? args[1] : ''}d6<=${character.number}`)
             results = roll.output.slice(roll.output.indexOf('['));
             results = helpers.formatRollResult(results);
@@ -29,6 +31,8 @@ module.exports = {
 
         }
         else if (args[0].toLowerCase() == stats['feelings'].toLowerCase()) {
+            let game = JSON.parse(fs.readFileSync(`./games/${server[message.channel.id]}.json`));
+            character = game.party.filter(x => x.playerid == message.author.id)[0];
             character = party.filter(x => x.playerid == message.author.id)[0];
             roll = new DiceRoll(`${args[1] ? args[1] : ''}d6>=${character.number}`)
             results = roll.output.slice(roll.output.indexOf('['));
@@ -38,9 +42,6 @@ module.exports = {
             message.channel.send(messageString);
         }
         else {
-            character = party.filter(x => x.playerid == message.author.id)[0];
-            roll = new DiceRoll(`d20${statString}`);
-            message.channel.send("`" + roll.output + "`");
         }
         
     },

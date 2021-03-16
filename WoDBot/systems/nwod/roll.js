@@ -1,7 +1,9 @@
 ﻿const { DiceRoll } = require('rpg-dice-roller/lib/umd/bundle.js');
-let party = require(`./party.json`);
-const { aliases, untrained, attributes, skills } = require('./game.json');
+const fs = require('fs');
 const helpers = require('../shared/helpers/helpers.js')
+let server = require(`../../server.json`);
+const { aliases, untrained, attributes, skills } = require('./system.json');
+
 module.exports = {
     name: 'roll',
     system: 'nwod',
@@ -25,7 +27,8 @@ module.exports = {
             message.channel.send("`" + results + " successes.`");
         } 
         else {
-            character = party.filter(x => x.playerid == message.author.id)[0];
+            let game = JSON.parse(fs.readFileSync(`./games/${server[message.channel.id]}.json`));
+            character = game.party.filter(x => x.playerid == message.author.id)[0];
             let rollString = args[0].toLowerCase();
             let rolls = args[0].toLowerCase().split(/\s+|((?<=\W)|(?=\W))/g);
             var convertedRolls = rolls;

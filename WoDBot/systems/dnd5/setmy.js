@@ -1,11 +1,13 @@
 ﻿const fs = require('fs');
-let party = require(`./party.json`);
-let { system, modifiers, attributes, scores } = require(`./game.json`);
+let server = require(`../../server.json`);
+let { system, modifiers, attributes, scores } = require(`./system.json`);
 module.exports = {
     name: 'setmy',
     system: 'dnd5',
     description: "Set your character's stats, attributes, descriptions, whatever! Arg1 = property, Arg2 = value. Try <image> <link> and <color> <hex value>!",
     execute(message, args) {
+        let game = JSON.parse(fs.readFileSync(`./games/${server[message.channel.id]}.json`));
+        let party = game.party;
         if (args[0] == "playerid") {
             message.channel.send("naughty!");
         }
@@ -37,8 +39,8 @@ module.exports = {
                 party[index] = character;
             }
             //update json
-            let data = JSON.stringify(party);
-            fs.writeFileSync(`systems/${system}/party.json`, data);
+            let data = JSON.stringify(game);
+            fs.writeFile(`games/${game.name}.json`, data, (err) => { if (err) throw err; });
             //send confirmation message
             if (!character.hasOwnProperty('name')) {
                 message.channel.send(`Your ${args[0]} is now ${newValue}. Don't forget to set a name!`);
