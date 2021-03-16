@@ -263,4 +263,5 @@ __pycache__/
 # Secret App files
 config.json
 server.json
-**/games/**
+games/
+old/
