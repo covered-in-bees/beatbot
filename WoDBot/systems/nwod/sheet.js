@@ -1,7 +1,6 @@
 ﻿const Discord = require('discord.js');
 const { attributes, skills } = require('./system.json');
 const fs = require('fs');
-const helpers = require('../shared/helpers/helpers.js');
 let server = require(`../../server.json`);
 module.exports = {
     name: 'sheet',

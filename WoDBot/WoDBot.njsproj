@@ -38,6 +38,7 @@
     <Compile Include="systems\dnd5\roll.js" />
     <Compile Include="systems\dnd5\setmy.js" />
     <Compile Include="systems\dnd5\sheet.js" />
+    <Compile Include="systems\shared\game.js" />
     <Compile Include="systems\shared\party.js" />
     <Compile Include="systems\lnf\roll.js" />
     <Compile Include="systems\lnf\setmy.js" />

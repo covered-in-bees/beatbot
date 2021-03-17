@@ -1,10 +1,11 @@
 const fs = require('fs');
 // require the discord.js module
 const Discord = require('discord.js');
-//get config vars
+//get config info
 const { prefix, token } = require('./config.json');
 var { system } = require('./config.json');
 var server = require('./server.json');
+//get games
 var gameFiles = fs.readdirSync('./games');
 var games = [];
 for (let game of gameFiles) {
@@ -15,7 +16,7 @@ for (let game of gameFiles) {
 const client = new Discord.Client();
 //initialize commands
 client.commands = new Discord.Collection();
-const commandFolders = fs.readdirSync('./systems').filter(folder => folder != 'shared');;
+const commandFolders = fs.readdirSync('./systems').filter(folder => folder != 'shared');
 for (const folder of commandFolders) {
     const commandFiles = fs.readdirSync(`./systems/${folder}`).filter(file => file.endsWith('.js'));
     for (const file of commandFiles) {
@@ -56,6 +57,11 @@ client.on('message', message => {
         }
         else {
             //set command to <channel's game system>.<command>
+            //add game to games if it does not exist
+            if (!games.filter(x => x.name == server[message.channel.id])[0]) {
+                let game = require(`./games/${server[message.channel.id]}`);
+                games.push(game);
+            }
             commandName = games.filter(x => x.name == server[message.channel.id])[0].system + '.' + commandName;
         }
     }

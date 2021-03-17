@@ -1,9 +1,13 @@
 ﻿var Character = require('../../classes/character');
+const fs = require('fs');
+let server = require(`../../server.json`);
 module.exports = {
     name: 'initiative',
     system: 'nwod',
     description: 'roll initiatives',
     execute(message, args) {
+        let game = JSON.parse(fs.readFileSync(`./games/${server[message.channel.id]}.json`));
+        let party = game.party;
         characters = []
         for (let character of party) {
             characters.push(new Character(character.name, character.initMod))
