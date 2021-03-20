@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "discord.js": "^12.5.1",
+    "enmap": "^5.8.4",
     "rpg-dice-roller": "^4.5.2"
   }
 }

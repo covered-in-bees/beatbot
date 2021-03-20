@@ -9,7 +9,7 @@ for (let game of gameFiles) {
 };
 var server = require('../../server.json');
 module.exports = {
-    name: 'game',
+    name: 'newgame',
     description: `Add new games/campaigns. Existing games are: ${games.map(game => game.name).join(', ')}`,
     execute(message, args) {
         if (!args.length) {
