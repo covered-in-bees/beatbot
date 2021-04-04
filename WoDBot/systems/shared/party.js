@@ -2,7 +2,6 @@
 let server = require(`../../server.json`);
 module.exports = {
     name: 'party',
-    system: 'lnf',
     description: "who's in the party?",
     execute(message, args) {
         var game

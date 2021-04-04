@@ -2,7 +2,7 @@
 const fs = require('fs');
 const helpers = require('../shared/helpers/helpers.js')
 let server = require(`../../server.json`);
-const { aliases, untrained, attributes, skills } = require('./system.json');
+const { aliases, fullName, untrained, attributes, skills } = require('./system.json');
 
 module.exports = {
     name: 'roll',
@@ -38,11 +38,14 @@ module.exports = {
                 if (character.hasOwnProperty(rolls[i])) {
                     convertedRolls.splice(i, 1, character[rolls[i]]);
                 }
-                else if (character.hasOwnProperty(aliases[rolls[i]])) {
-                    convertedRolls.splice(i, 1, character[aliases[rolls[i]]]);
+                else if (character.hasOwnProperty(fullName[rolls[i]])) {
+                    convertedRolls.splice(i, 1, character[fullName[rolls[i]]]);
                 }
                 else if (untrained.hasOwnProperty(rolls[i])) {
                     convertedRolls.splice(i, 1, untrained[rolls[i]]);
+                }
+                else if (untrained.hasOwnProperty(fullName[rolls[i]])) {
+                    convertedRolls.splice(i, 1, untrained[fullName[rolls[i]]]);
                 }
                 else if (notations.includes(rolls[i]) || helpers.isNumeric(rolls[i])) {
                 }

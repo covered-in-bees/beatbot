@@ -1,5 +1,8 @@
 ﻿{
   "attributes": [ "Intelligence", "Strength", "Wisdom", "Dexterity", "Charisma", "Constitution" ],
+  "botName": "SpoutBot",
+  "classNames": ["barbarian", "bard", "cleric", "druid", "fighter", "immolator", "paladin", "ranger", "thief", "wizard"],
+  "descriptors": [ "alignment", "race", "class" ],
   "modifiers": {
     "intelligence": "int",
     "strength": "str",
@@ -30,8 +33,6 @@
     "19": "3",
     "20": "3"
   },
-  "descriptors": [ "alignment", "race", "class" ],
   "skills": [ "Armor", "HP", "Damage" ],
-  "system": "pbta",
-  "botName": "SpoutBot"
+  "system": "pbta"
 }

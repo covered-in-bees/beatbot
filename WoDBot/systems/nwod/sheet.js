@@ -10,8 +10,13 @@ module.exports = {
         let game = JSON.parse(fs.readFileSync(`./games/${server[message.channel.id]}.json`));
         let party = game.party;
         if (args.length == 0) {
-            var character = party.filter(x => x.playerid == message.author.id)[0]
-            message.channel.send(buildSheet(character));
+            var character = party.filter(x => x.playerid == message.author.id).find(Boolean);
+            if (character) {
+                message.channel.send(buildSheet(character));
+            }
+            else {
+                message.channel.send("Who? Try !party and pick an existing character.");
+            }
         }
         else {
             let characterName = '';

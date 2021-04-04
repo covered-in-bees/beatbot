@@ -38,7 +38,10 @@
     <Compile Include="systems\dnd5\roll.js" />
     <Compile Include="systems\dnd5\setmy.js" />
     <Compile Include="systems\dnd5\sheet.js" />
+    <Compile Include="systems\pbta\move.js" />
     <Compile Include="systems\shared\game.js" />
+    <Compile Include="systems\shared\newgame.js" />
+    <Compile Include="systems\shared\delete.js" />
     <Compile Include="systems\shared\party.js" />
     <Compile Include="systems\lnf\roll.js" />
     <Compile Include="systems\lnf\setmy.js" />
@@ -57,7 +60,6 @@
     <Compile Include="systems\nwod\beat.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="systems\shared\channel.js" />
     <Compile Include="systems\shared\system.js" />
     <Compile Include="systems\nwod\james.js" />
     <Compile Include="systems\nwod\hekdek.js">
@@ -71,12 +73,17 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="systems\pbta\sheet.js" />
+    <Compile Include="systems\traveller\roll.js" />
+    <Content Include="games\movie-night.json" />
     <Content Include="server.json" />
     <Content Include="games\golden-girls.json" />
     <Content Include="games\dungeon-world.json" />
     <Content Include="systems\lnf\system.json" />
     <Content Include="systems\nwod\system.json" />
     <Content Include="systems\dnd5\system.json" />
+    <Content Include="systems\pbta\moves.json">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="systems\pbta\system.json" />
     <Content Include="games\socal-of-darkness.json" />
     <Content Include="config.json">
@@ -86,6 +93,7 @@
     <Content Include="README.md" />
     <Content Include="systems\nwod\resources\hekdek.png" />
     <Content Include="systems\nwod\resources\james.png" />
+    <Content Include="systems\traveller\system.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="functions\" />
@@ -95,6 +103,7 @@
     <Folder Include="classes\" />
     <Folder Include="systems\dnd5\" />
     <Folder Include="systems\lnf\" />
+    <Folder Include="systems\traveller\" />
     <Folder Include="systems\shared\" />
     <Folder Include="systems\pbta\" />
     <Folder Include="systems\nwod\" />

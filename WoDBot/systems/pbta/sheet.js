@@ -40,7 +40,7 @@ module.exports = {
                 .setThumbnail(character.image ? character.image : null)
             var descriptorString = ''
             for (let descriptor of descriptors) {
-                descriptorString += character[descriptor] + ' ';
+                descriptorString += character[descriptor] ? `${character[descriptor]} ` : `${descriptor} `;
             }
             characterSheet.addField('\u200B', descriptorString);
             for (let attribute of attributes) {
@@ -51,6 +51,7 @@ module.exports = {
                     characterSheet.addField(skill, character[skill.toLowerCase()], true);
                 }
             }
+            characterSheet.setFooter(`${character.sponsor ? `Sponsored by ${character.sponsor} |` : ''} ${character.pronouns ? `${character.pronouns} |` : ''} ${character.xp ? `${character.xp} XP` : ''}`);
             return characterSheet
         }
     },

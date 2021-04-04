@@ -1,9 +1,11 @@
-﻿const { experience } = require('./system.json');
+﻿const fs = require('fs');
+let server = require(`../../server.json`);
 module.exports = {
     name: 'experience',
     system: 'nwod',
 	description: 'read experience amount',
     execute(message, args) {
-        message.channel.send(`So far, there are ${experience} experiences.`);
+        let game = JSON.parse(fs.readFileSync(`./games/${server[message.channel.id]}.json`));
+        message.channel.send(`So far, there are ${game.experience} experiences.`);
 	},
 };

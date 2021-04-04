@@ -32,7 +32,6 @@ for (const file of sharedFiles) {
     sharedCommands.push(command.name);
 }
 //set globals
-global.gameSystem = system;
 global.beats = 0;
 
 // when the client is ready, run this code
@@ -51,9 +50,9 @@ client.on('message', message => {
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     var commandName = args.shift().toLowerCase();
     if (!commandName.includes('.') && !sharedCommands.includes(commandName)) {
-        if (system.hasOwnProperty(message.channel.id)) {
+        if (!server.hasOwnProperty(message.channel.id)) {
             //set command to <default system>.<command>
-            commandName = gameSystem + '.' + commandName;
+            commandName = system + '.' + commandName;
         }
         else {
             //set command to <channel's game system>.<command>

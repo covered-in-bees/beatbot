@@ -12,16 +12,22 @@ module.exports = {
             results = roll.output;
             message.channel.send("`" + results + "`");
         }
-        else if (args.length == 1 && args[0].match(/(?:\d+d|d+\d)[d\d]*/g)) {
-            let game = JSON.parse(fs.readFileSync(`./games/${server[message.channel.id]}.json`));
-            character = game.party.filter(x => x.playerid == message.author.id)[0];
+        else if (args.length > 1) {
+            message.channel.send("No spaces please!");
+        }
+        else if (args[0].match(/(?:\d+d|d+\d)[d\d]*/g)) {
+            let character;
+            if (server.hasOwnProperty(message.channel.id)) {
+                let game = JSON.parse(fs.readFileSync(`./games/${server[message.channel.id]}.json`));
+                character = game.party.filter(x => x.playerid == message.author.id)[0];
+            }
             let rollString = args[0].toLowerCase();
             let rolls = args[0].toLowerCase().split(/\s+|((?<=\W)|(?=\W))/g);
             var convertedRolls = rolls;
             let notations = ['+', '', '-'];
             let notFound = [];
             for (let i in rolls) {
-                if (character.hasOwnProperty(rolls[i])) {
+                if (character && character.hasOwnProperty(rolls[i])) {
                     convertedRolls.splice(i, 1, character[rolls[i]]);
                 }
                 else if (notations.includes(rolls[i]) || helpers.isNumeric(rolls[i]) || rolls[i].match(/(?:\d+d|d+\d)[d\d]*/g)) {

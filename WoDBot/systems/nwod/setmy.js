@@ -4,11 +4,28 @@ let { aliases, fullName } = require(`./system.json`);
 module.exports = {
     name: 'setmy',
     system: 'nwod',
-    description: "Set your character's stats, attributes, descriptions, whatever! Arg1 = property, Arg2 = value. Try <image> <link> and <color> <hex value>!",
+    description: "Set your character's stats, attributes, descriptions, whatever! Arg1 = property, Arg2 = value. Try !setmy image <link> and !setmy color <hex value>!",
     execute(message, args) {
         let game = JSON.parse(fs.readFileSync(`./games/${server[message.channel.id]}.json`));
         let party = game.party;
         if (args[0] == "playerid") {
+        }
+        else if (args[0] == "character") {
+            let jsonstring = args.slice(1).join(' ').toLowerCase();
+            let newChar = JSON.parse(jsonstring);
+            newChar.playerid = message.author.id;
+            let oldChar = party.filter(x => x.playerid == newChar.playerid).find(Boolean);
+            if (oldChar) {
+                newChar = Object.assign(oldChar, newChar);
+                let index = party.findIndex(x => x.playerid == newChar.playerid);
+                party[index] = newChar;
+            }
+            else {
+                party.push(newChar);
+            }
+            let data = JSON.stringify(game);
+            fs.writeFile(`games/${game.name}.json`, data, (err) => { if (err) throw err; });
+            message.channel.send(`Character added!`);
         }
         else {
             //create new character if user doesn't have one

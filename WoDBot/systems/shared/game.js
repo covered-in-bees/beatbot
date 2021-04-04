@@ -1,5 +1,4 @@
-﻿var config = require('../../config.json');
-const fs = require('fs');
+﻿const fs = require('fs');
 var gameFiles = fs.readdirSync('./games');
 var games = [];
 for (let game of gameFiles) {
@@ -8,7 +7,7 @@ for (let game of gameFiles) {
 };
 var server = require('../../server.json');
 module.exports = {
-    name: 'channel',
+    name: 'game',
     description: `Report or change the current game/campaign. Existing games are: ${games.map(game => game.name).join(', ')}`,
     execute(message, args) {
         if (!args.length) {

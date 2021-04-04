@@ -4,7 +4,7 @@ let server = require(`../../server.json`);
 const helpers = require('../shared/helpers/helpers.js')
 module.exports = {
     name: 'roll',
-    system: 'pbta',
+    system: 'traveller',
     description: 'Rolls dice. With no arguments, rolls 2d6. Stat names can substitute for numbers, using your stats. If given d notation, roll those dice.',
     execute(message, args) {
         if (args.length == 0) {

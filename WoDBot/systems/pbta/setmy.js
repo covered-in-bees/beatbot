@@ -8,8 +8,14 @@ module.exports = {
     execute(message, args) {
         let game = JSON.parse(fs.readFileSync(`./games/${server[message.channel.id]}.json`));
         let party = game.party;
-        if (args[0] == "playerid") {
-            message.channel.send("naughty!");
+        if (!args.length) {
+            message.channel.send("set your what?");
+        }
+        else if (args.length == 1) {
+            message.channel.send(`set your ${args[0]} to what?`);
+        }
+        else if (args[0] == "playerid") {
+            message.channel.send("No!");
         }
         else {
             //create new character if user doesn't have one
