@@ -38,6 +38,10 @@
     <Compile Include="systems\dnd5\roll.js" />
     <Compile Include="systems\dnd5\setmy.js" />
     <Compile Include="systems\dnd5\sheet.js" />
+    <Compile Include="systems\owod\initiative.js" />
+    <Compile Include="systems\owod\roll.js" />
+    <Compile Include="systems\owod\set.js" />
+    <Compile Include="systems\owod\sheet.js" />
     <Compile Include="systems\pbta\move.js" />
     <Compile Include="systems\shared\game.js" />
     <Compile Include="systems\shared\newgame.js" />
@@ -74,13 +78,17 @@
     </Compile>
     <Compile Include="systems\pbta\sheet.js" />
     <Compile Include="systems\traveller\roll.js" />
+    <Content Include="games\ghosts-of-mars.json" />
     <Content Include="games\movie-night.json" />
+    <Content Include="games\test-nwod.json" />
+    <Content Include="games\test-owod.json" />
     <Content Include="server.json" />
     <Content Include="games\golden-girls.json" />
     <Content Include="games\dungeon-world.json" />
     <Content Include="systems\lnf\system.json" />
     <Content Include="systems\nwod\system.json" />
     <Content Include="systems\dnd5\system.json" />
+    <Content Include="systems\owod\system.json" />
     <Content Include="systems\pbta\moves.json">
       <SubType>Code</SubType>
     </Content>
@@ -103,6 +111,7 @@
     <Folder Include="classes\" />
     <Folder Include="systems\dnd5\" />
     <Folder Include="systems\lnf\" />
+    <Folder Include="systems\owod\" />
     <Folder Include="systems\traveller\" />
     <Folder Include="systems\shared\" />
     <Folder Include="systems\pbta\" />

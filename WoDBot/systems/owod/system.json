@@ -1,0 +1,35 @@
+﻿{
+  "aliases": {
+    "intelligence": "int",
+    "strength": "str",
+    "dexterity": "dex",
+    "manipulation": "manip",
+    "stamina": "stam",
+    "charisma": "cha",
+    "perception":  "per",
+    "animalKen": "ken",
+    "weaponry": "wep",
+    "investigation": "inv",
+    "intimidation":  "intimidate"
+  },
+  "attributes": [ "Intelligence", "Strength", "Appearance", "Wits", "Dexterity", "Manipulation", "Charisma", "Stamina", "Perception" ],
+  "botName": "BeatBot",
+  "fullName": {
+    "int": "intelligence",
+    "str": "strength",
+    "dex": "dexterity",
+    "manip": "manipulation",
+    "stam": "stamina",
+    "cha": "charisma",
+    "per":  "perception",
+    "ken": "animalKen",
+    "wep": "weaponry",
+    "inv": "investigation",
+    "intimidate": "intimidation"
+  },
+  "abilities": [ "Alertness", "Athletics", "Awareness", "Brawl", "Empathy", "Expression", "Intimidation", "Presuasion", "Streetwise", "Subterfuge", "Crafts", "Drive", "Etiquette", "Firearms", "Larceny", "Leadership", "Meditation", "Melee", "Performance", "Stealth", "Academics", "Bureaucracy", "Computer", "Enigmas", "Investigation", "Medicine", "Occult", "Politics", "Science", "Technology" ],
+  "system": "owod",
+  "talents": [ "alertness", "athletics", "awareness", "brawl", "empathy", "expression", "intimidation", "presuasion", "streetwise", "subterfuge" ],
+  "skills": ["crafts","drive","etiquette","firearms","larceny","leadership","meditation","melee","performance","stealth"],
+  "knowledges": ["academics","bureaucracy","computer","enigmas","investigation","medicine","occult","politics","science","technology"]
+}
